@@ -1,6 +1,8 @@
 package net.kaio.bituksmod;
 
 import com.mojang.logging.LogUtils;
+import net.kaio.bituksmod.block.ModBlocks;
+import net.kaio.bituksmod.item.ModItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,7 +24,11 @@ public class BituksMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
+
 
         MinecraftForge.EVENT_BUS.register(this);
     }
