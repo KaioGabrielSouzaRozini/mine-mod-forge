@@ -4,9 +4,11 @@
   "item.bituksmod.turmalina_cristal": "Turmalina cristal",
   "item.bituksmod.turmalina_pearl": "Turmalina Pearl",
   "item.bituksmod.turmalina_fruit": "Turmalina Fruit",
+  "item.bituksmod.turmalina_seeds": "Turmalina Seeds",
 
   "block.bituksmod.turmalina_ore": "Turmalina Ore",
   "block.bituksmod.deepslate_turmalina_ore": "Deepstlate Turmalina Ore",
+  "block.tutorialmod.turmalina_crop": "Turmalina crop",
   "block.bituksmod.turmalina_block": "Turmalina Block",
 
   "itemGroup.bitukstab": "Bituka's mod tab"

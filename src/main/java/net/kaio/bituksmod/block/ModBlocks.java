@@ -1,6 +1,7 @@
 package net.kaio.bituksmod.block;
 
 import net.kaio.bituksmod.BituksMod;
+import net.kaio.bituksmod.block.custom.TurmalinaCropBlock;
 import net.kaio.bituksmod.item.ModItems;
 import net.kaio.bituksmod.item.ModeCreativeModelTab;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -8,6 +9,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -32,6 +34,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> TURMALINA_BLOCK = registerBlock("turmalina_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops()), ModeCreativeModelTab.BITUKS_TAB);
+
+    public static final RegistryObject<Block> TURMALINA_CROP = BLOCKS.register("turmalina_crop",
+            () -> new TurmalinaCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){
