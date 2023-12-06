@@ -3,6 +3,8 @@ package net.kaio.bituksmod;
 import com.mojang.logging.LogUtils;
 import net.kaio.bituksmod.block.ModBlocks;
 import net.kaio.bituksmod.item.ModItems;
+import net.kaio.bituksmod.world.feature.ModConfiguredFeatures;
+import net.kaio.bituksmod.world.feature.ModPlacedFeatures;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,6 +28,8 @@ public class BituksMod
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
