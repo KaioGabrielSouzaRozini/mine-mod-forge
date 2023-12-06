@@ -5,6 +5,8 @@ import net.kaio.bituksmod.block.ModBlocks;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,6 +25,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> TURMALINA_FRUIT = ITEMS.register("turmalina_fruit",
             () -> new Item(new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(2f).build())));
+
+    public static final RegistryObject<Item> TURMALINA_SWORD = ITEMS.register("turmalina_sword", () -> new SwordItem(Tiers.NETHERITE, 15, 2f,
+            new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB).stacksTo(1)));
 
 
 
