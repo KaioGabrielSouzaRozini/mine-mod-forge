@@ -1,17 +1,21 @@
 package net.kaio.bituksmod.block;
 
 import net.kaio.bituksmod.BituksMod;
+import net.kaio.bituksmod.block.custom.ModFlammableRotatedPillarBlock;
 import net.kaio.bituksmod.block.custom.TurmalinaCropBlock;
 import net.kaio.bituksmod.item.ModItems;
 import net.kaio.bituksmod.item.ModeCreativeModelTab;
+import net.kaio.bituksmod.world.feature.tree.RedAcaciaTreeGrower;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -37,6 +41,54 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> TURMALINA_CROP = BLOCKS.register("turmalina_crop",
             () -> new TurmalinaCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
+
+    public static final RegistryObject<Block> RED_ACACIA_LOG = registerBlock("red_acacia_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).requiresCorrectToolForDrops()), ModeCreativeModelTab.BITUKS_TAB);
+
+    public static final RegistryObject<Block> RED_ACACIA_WOOD = registerBlock("red_acacia_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).requiresCorrectToolForDrops()), ModeCreativeModelTab.BITUKS_TAB);
+    public static final RegistryObject<Block> STRIPPED_RED_ACACIA_LOG = registerBlock("stripped_red_acacia_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).requiresCorrectToolForDrops()), ModeCreativeModelTab.BITUKS_TAB);
+    public static final RegistryObject<Block> STRIPPED_RED_ACACIA_WOOD = registerBlock("stripped_red_acacia_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).requiresCorrectToolForDrops()), ModeCreativeModelTab.BITUKS_TAB);
+    public static final RegistryObject<Block> RED_ACACIA_PLANKS = registerBlock("red_acacia_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).requiresCorrectToolForDrops()){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+            }, ModeCreativeModelTab.BITUKS_TAB);
+
+    public static final RegistryObject<Block> RED_ACACIA_LEAVES = registerBlock("red_acacia_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).requiresCorrectToolForDrops()){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+            }, ModeCreativeModelTab.BITUKS_TAB);
+
+    public static final RegistryObject<Block> RED_ACACIA_SAPLING = registerBlock("red_acacia_sapling",
+            () -> new SaplingBlock(new RedAcaciaTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), ModeCreativeModelTab.BITUKS_TAB);
 
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab){

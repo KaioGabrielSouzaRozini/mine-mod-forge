@@ -1,7 +1,9 @@
 package net.kaio.bituksmod.world.feature;
 
 import net.kaio.bituksmod.BituksMod;
+import net.kaio.bituksmod.block.ModBlocks;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,6 +22,10 @@ public class ModPlacedFeatures {
                     commonOrePlacement(7, // VeinsPerChunk
                             HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80)))));
 
+
+    public static final RegistryObject<PlacedFeature> RED_ACACIA_CHECKED = PLACED_FEATURES.register("red_acacia_checked",
+            () -> new PlacedFeature(ModConfiguredFeatures.RED_ACACIA.getHolder().get(),
+                    List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.RED_ACACIA_SAPLING.get()))));
 
 
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {

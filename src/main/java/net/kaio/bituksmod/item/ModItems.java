@@ -26,8 +26,12 @@ public class ModItems {
     public static final RegistryObject<Item> TURMALINA_FRUIT = ITEMS.register("turmalina_fruit",
             () -> new Item(new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(2f).build())));
 
-    public static final RegistryObject<Item> TURMALINA_SWORD = ITEMS.register("turmalina_sword", () -> new SwordItem(Tiers.NETHERITE, 15, 2f,
+    public static final RegistryObject<Item> TURMALINA_SWORD = ITEMS.register("turmalina_sword", () -> new SwordItem(Tiers.NETHERITE, 3, -2.4f,
             new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> TURMALINA_DAGGER = ITEMS.register("turmalina_dagger", () -> new SwordItem(Tiers.NETHERITE, 5, 8f,
+            new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB).stacksTo(1)));
+
 
 
 
