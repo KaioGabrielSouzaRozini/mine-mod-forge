@@ -6,7 +6,7 @@ import net.kaio.bituksmod.item.ModCreativeModeTab;
 import net.kaio.bituksmod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -27,6 +27,8 @@ public class BituksMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModeTab.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
@@ -43,8 +45,8 @@ public class BituksMod
 
     }
 
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == ModCreativeModeTab.BITUKS_TAB) {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTab() == ModCreativeModeTab.BITUKS_TAB.get()) {
             event.accept(ModItems.TURMALINA);
             event.accept(ModItems.TURMALINA_SEEDS);
             event.accept(ModItems.RAW_TURMALINA);
@@ -67,10 +69,10 @@ public class BituksMod
             event.accept(ModBlocks.RED_ACACIA_PLANKS);
             event.accept(ModBlocks.RED_ACACIA_LEAVES);
         }
-        if(event.getTab() == CreativeModeTabs.INGREDIENTS) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.TURMALINA);
         }
-        if(event.getTab() == CreativeModeTabs.BUILDING_BLOCKS) {
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.TURMALINA_ORE);
             event.accept(ModBlocks.DEEPSLATE_TURMALINA_ORE);
             event.accept(ModBlocks.TURMALINA_CROP);

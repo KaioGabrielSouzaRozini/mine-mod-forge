@@ -14,7 +14,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,14 +26,14 @@ public class ModBlocks {
 
     //mudar e configurar bloco
     public static final RegistryObject<Block> TURMALINA_ORE = registerBlock("turmalina_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> DEEPSLATE_TURMALINA_ORE = registerBlock("deepslate_turmalina_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
                     .strength(6f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> TURMALINA_BLOCK = registerBlock("turmalina_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(6f).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> TURMALINA_CROP = BLOCKS.register("turmalina_crop",
