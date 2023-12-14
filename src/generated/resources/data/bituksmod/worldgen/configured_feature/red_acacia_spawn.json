@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "bituksmod:red_acacia_checked",
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": "bituksmod:red_acacia_checked"
+      }
+    ]
+  }
+}
