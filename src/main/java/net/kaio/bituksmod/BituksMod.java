@@ -56,6 +56,10 @@ public class BituksMod
             event.accept(ModItems.TURMALINA_DAGGER);
             event.accept(ModItems.TURMALINA_SWORD);
 
+            event.accept(ModItems.TURMALINA_HELMET);
+            event.accept(ModItems.TURMALINA_CHESTPLATE);
+            event.accept(ModItems.TURMALINA_LEGGINGS);
+            event.accept(ModItems.TURMALINA_BOOTS);
 
             event.accept(ModBlocks.TURMALINA_ORE);
             event.accept(ModBlocks.DEEPSLATE_TURMALINA_ORE);
