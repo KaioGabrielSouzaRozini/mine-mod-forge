@@ -2,10 +2,11 @@ package net.kaio.bituksmod;
 
 import com.mojang.logging.LogUtils;
 import net.kaio.bituksmod.block.ModBlocks;
+import net.kaio.bituksmod.item.ModCreativeModeTab;
 import net.kaio.bituksmod.item.ModItems;
-import net.kaio.bituksmod.world.feature.ModConfiguredFeatures;
-import net.kaio.bituksmod.world.feature.ModPlacedFeatures;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -28,13 +29,13 @@ public class BituksMod
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        ModConfiguredFeatures.register(modEventBus);
-        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        modEventBus.addListener(this::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -42,6 +43,47 @@ public class BituksMod
 
     }
 
+    private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if(event.getTab() == ModCreativeModeTab.BITUKS_TAB) {
+            event.accept(ModItems.TURMALINA);
+            event.accept(ModItems.TURMALINA_SEEDS);
+            event.accept(ModItems.RAW_TURMALINA);
+            event.accept(ModItems.TURMALINA_CRISTAL);
+            event.accept(ModItems.TURMALINA_PEARL);
+            event.accept(ModItems.TURMALINA_FRUIT);
+            event.accept(ModItems.TURMALINA_DAGGER);
+            event.accept(ModItems.TURMALINA_SWORD);
+
+
+            event.accept(ModBlocks.TURMALINA_ORE);
+            event.accept(ModBlocks.DEEPSLATE_TURMALINA_ORE);
+            event.accept(ModBlocks.TURMALINA_CROP);
+            event.accept(ModBlocks.TURMALINA_BLOCK);
+            event.accept(ModBlocks.RED_ACACIA_WOOD);
+            event.accept(ModBlocks.RED_ACACIA_LOG);
+            event.accept(ModBlocks.STRIPPED_RED_ACACIA_WOOD);
+            event.accept(ModBlocks.STRIPPED_RED_ACACIA_LOG);
+            event.accept(ModBlocks.RED_ACACIA_SAPLING);
+            event.accept(ModBlocks.RED_ACACIA_PLANKS);
+            event.accept(ModBlocks.RED_ACACIA_LEAVES);
+        }
+        if(event.getTab() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.TURMALINA);
+        }
+        if(event.getTab() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.TURMALINA_ORE);
+            event.accept(ModBlocks.DEEPSLATE_TURMALINA_ORE);
+            event.accept(ModBlocks.TURMALINA_CROP);
+            event.accept(ModBlocks.TURMALINA_BLOCK);
+            event.accept(ModBlocks.RED_ACACIA_WOOD);
+            event.accept(ModBlocks.RED_ACACIA_LOG);
+            event.accept(ModBlocks.STRIPPED_RED_ACACIA_WOOD);
+            event.accept(ModBlocks.STRIPPED_RED_ACACIA_LOG);
+            event.accept(ModBlocks.RED_ACACIA_SAPLING);
+            event.accept(ModBlocks.RED_ACACIA_PLANKS);
+            event.accept(ModBlocks.RED_ACACIA_LEAVES);
+        }
+    }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_overworld",
-  "features": "bituksmod:turmalina_ore_placed",
+  "features": "bituksmod:turmalina_placed",
   "step": "underground_ores"
 }
