@@ -20,6 +20,8 @@ public class ModItems {
     public static final RegistryObject<Item> RAW_TURMALINA = ITEMS.register("raw_turmalina", () -> new Item(new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB)));
     public static final RegistryObject<Item> TURMALINA_CRISTAL = ITEMS.register("turmalina_cristal", () -> new Item(new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB)));
     public static final RegistryObject<Item> TURMALINA_PEARL = ITEMS.register("turmalina_pearl", () -> new Item(new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB)));
+    public static final RegistryObject<Item> DAGGER_HANDLE = ITEMS.register("dagger_handle", () -> new Item(new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB)));
+    public static final RegistryObject<Item> RED_ACACIA_STICK = ITEMS.register("red_acacia_stick", () -> new Item(new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB)));
     public static final RegistryObject<Item> TURMALINA_SEEDS = ITEMS.register("turmalina_seeds", () -> new ItemNameBlockItem(ModBlocks.TURMALINA_CROP.get(),
             new Item.Properties().tab(ModeCreativeModelTab.BITUKS_TAB)));
 
